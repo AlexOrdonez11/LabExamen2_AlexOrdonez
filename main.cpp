@@ -67,7 +67,18 @@ void GuardarPila(PILA*& pila){
 
 }
 void CargarPila(PILA*& pila){
+	fstream archivo("Operaciones.txt");
+	string line;
+	if(!archivo.is_open()){
+		archivo.open("Operaciones.txt",ios::in);
+	}
+	while(getline(archivo,line)){
+		Operacion* op=new Operacion(line);
+		pila->Push(op);
+	}
+	archivo.close();
 
+	
 }
 void Resolver(PILA*& pila,vector<int> valores,vector<char> nombres){
 	nodo* nod=pila->Pop();
