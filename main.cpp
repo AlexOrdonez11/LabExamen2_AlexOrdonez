@@ -78,8 +78,10 @@ void Crear(PILA*& pila){
 	string operacion;
 	cout<<"Ingrese una operacion valida"<<endl;
 	cin>>operacion;
-	Operacion* op=new Operacion(operacion);
-	nodo* nod=new nodo(op);
+	//if(ValidarOp(operacion)){
+		Operacion* op=new Operacion(operacion);
+		pila->Push(op);
+	//}
 }
 bool ValidarOp(string cad){
 	if(cad.size()%2==0){

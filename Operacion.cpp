@@ -1,13 +1,16 @@
 #include "Operacion.h"
 #include<string>
+#include <iostream>
 #include <vector>
 
 Operacion::Operacion(string oper){
 	operacion=oper;
 }
 int Operacion::Resolve(string cad,vector<int> valores,vector<char> nombres){
+	cout<<"Resolviendo"<<endl;
 	if(isdigit(cad[0])){
-		int x=(int)cad[0];
+		int x=(int)cad[0]-48;
+		cout<<x<<endl;
 		if(cad.size()>2){
 			switch(cad[1]){
 				case '+':
